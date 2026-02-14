@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Share+Tech+Mono&family=Syne:wght@300;400;500&display=swap');
+
+:root {
+  --void:   #020b12; --deep: #040e18;
+  --cyan:   #00e5ff; --blue: #1a6cf5; --bluel: #4facfe;
+  --cglow:  rgba(0,229,255,.28);
+  --card:   rgba(0,200,255,.04); --cardhov: rgba(0,200,255,.08);
+  --bord:   rgba(0,229,255,.1);  --bordh:   rgba(0,229,255,.38);
+  --t1: #dff0f5; --t2: #7aaabb; --t3: #2d4455;
+  --font-d: 'Orbitron',monospace;
+  --font-m: 'Share Tech Mono',monospace;
+  --font-b: 'Syne',sans-serif;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
+
+body {
+  min-height: 100vh;
+  background: var(--void);
+  color: var(--t1);
+  font-family: var(--font-b);
+  font-size: 14px;
+  padding: 90px 24px 60px;
+  overflow-x: hidden;
+}
+
+/* Scanline overlay */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,229,255,.007) 2px,rgba(0,229,255,.007) 3px);
+  pointer-events: none; z-index: 9990;
+}
+
+::-webkit-scrollbar { width: 3px }
+::-webkit-scrollbar-track { background: var(--void) }
+::-webkit-scrollbar-thumb { background: linear-gradient(var(--blue), var(--cyan)) }
+
+/* ---- HEADER ---- */
+.admin-header {
+  position: fixed; top: 0; left: 0; width: 100%;
+  background: rgba(2,11,18,.8);
+  backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+  border-bottom: 1px solid var(--bord); z-index: 1000;
+}
+.admin-header .container {
+  max-width: 960px; margin: auto;
+  padding: 0 28px; height: 62px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.admin-header h1 {
+  font-family: var(--font-d); font-size: 11px;
+  font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--t1);
+}
+.admin-header a {
+  font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--cyan); text-decoration: none;
+  border: 1px solid var(--bord); padding: 7px 16px; border-radius: 3px;
+  transition: .25s ease;
+}
+.admin-header a:hover { border-color: var(--cyan); box-shadow: 0 0 14px var(--cglow); }
+
+/* ---- LAYOUT ---- */
+.admin-container { max-width: 960px; margin: 0 auto; }
+
+/* ---- CARD ---- */
+.admin-card {
+  background: var(--card); border: 1px solid var(--bord);
+  border-radius: 10px; padding: 32px; margin-bottom: 24px;
+  position: relative; overflow: hidden; transition: .3s ease;
+}
+.admin-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transform: scaleX(0); transform-origin: left; transition: transform .4s ease;
+}
+.admin-card:hover::before { transform: scaleX(1); }
+.admin-card:hover { background: var(--cardhov); border-color: var(--bordh); }
+.admin-card h2 {
+  font-family: var(--font-d); font-size: 11px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--cyan);
+  margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--bord);
+}
+.admin-card h3 {
+  font-family: var(--font-d); font-size: 9px;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--t2);
+  margin: 28px 0 14px;
+}
+
+/* ---- FORM ELEMENTS ---- */
+label {
+  display: block; font-family: var(--font-m); font-size: 9px;
+  letter-spacing: 2.5px; text-transform: uppercase; color: var(--t3); margin-bottom: 7px;
+}
+input, textarea, select {
+  width: 100%; padding: 11px 14px; margin-bottom: 18px;
+  background: rgba(0,0,0,.35); border: 1px solid var(--bord); border-radius: 5px;
+  color: var(--t1); font-family: var(--font-b); font-size: 14px;
+  transition: .3s ease; outline: none;
+}
+textarea { resize: vertical; min-height: 96px; }
+select { cursor: pointer; }
+input:focus, textarea:focus, select:focus {
+  border-color: rgba(0,229,255,.38);
+  box-shadow: 0 0 0 2px rgba(0,229,255,.08);
+  background: rgba(0,229,255,.02);
+}
+input::placeholder, textarea::placeholder { color: var(--t3); font-size: 13px; }
+input[type="file"] { padding: 8px 14px; cursor: pointer; color: var(--t2); }
+
+/* ---- BUTTONS ---- */
+button {
+  padding: 12px 24px; border: 1px solid var(--cyan); border-radius: 4px;
+  background: transparent; color: var(--cyan);
+  font-family: var(--font-m); font-size: 10px;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  cursor: pointer; transition: .3s ease;
+  position: relative; overflow: hidden;
+}
+button::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--cyan); transform: translateY(101%);
+  transition: transform .28s ease; z-index: 0;
+}
+button span { position: relative; z-index: 1; }
+button:hover { color: var(--void); box-shadow: 0 0 22px var(--cglow); }
+button:hover::before { transform: translateY(0); }
+
+/* ---- CMS LIST ITEMS ---- */
+.cms-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 13px 16px; margin-bottom: 10px;
+  background: rgba(0,0,0,.3); border: 1px solid var(--bord); border-radius: 6px;
+  font-size: 13px; transition: .25s ease;
+}
+.cms-item:hover { border-color: rgba(0,229,255,.22); background: rgba(0,229,255,.03); }
+.cms-item strong { color: var(--t1); font-weight: 500; display: block; margin-bottom: 3px; }
+.cms-item span   { color: var(--t2); font-size: 12px; }
+.cms-item button {
+  padding: 5px 14px; font-size: 9px; letter-spacing: 1.5px;
+  border-color: #ff4444; color: #ff4444; margin: 0; flex-shrink: 0;
+}
+.cms-item button::before { background: #ff4444; }
+.cms-item button:hover   { color: #fff; box-shadow: none; }
+
+/* ---- SKILL CHIPS ---- */
+.skills-group { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 10px; }
+.skill-item {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 3px;
+  font-family: var(--font-m); font-size: 10px; letter-spacing: .5px;
+  background: rgba(0,229,255,.07); border: 1px solid var(--bord); color: var(--t2);
+  transition: .25s ease;
+}
+.skill-item:hover { background: rgba(0,229,255,.14); color: var(--cyan); border-color: var(--bordh); }
+.skill-item button {
+  all: unset; cursor: pointer; color: #ff6b6b; font-size: 14px; line-height: 1;
+  transition: transform .2s, color .2s; padding: 0; border: none;
+}
+.skill-item button:hover { transform: scale(1.2); color: #ff3333; }
+
+/* ---- SKILL CATEGORY HEADINGS ---- */
+#skills-list > div { margin-bottom: 22px; }
+#skills-list h4 {
+  font-family: var(--font-m); font-size: 9px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--cyan);
+  border-left: 2px solid var(--cyan); padding-left: 10px; margin-bottom: 12px;
+}
+
+/* ---- DASHBOARD LINKS ---- */
+.dashboard-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+}
+.dashboard-links a {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 28px 16px; border-radius: 8px; text-decoration: none;
+  background: rgba(0,229,255,.04); border: 1px solid var(--bord);
+  font-family: var(--font-d); font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--t2); transition: .3s ease; text-align: center;
+}
+.dashboard-links a .icon { font-size: 26px; margin-bottom: 10px; display: block; }
+.dashboard-links a:hover {
+  background: rgba(0,229,255,.09); border-color: var(--bordh);
+  color: var(--cyan); transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,.4), 0 0 24px rgba(0,229,255,.06);
+}
+
+/* ---- LOGIN PAGE ---- */
+.admin-login-wrapper {
+  min-height: calc(100vh - 90px);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.admin-login-card {
+  width: 100%; max-width: 420px;
+  background: var(--card); border: 1px solid var(--bord); border-radius: 12px;
+  padding: 40px 36px; box-shadow: 0 32px 80px rgba(0,0,0,.6);
+  animation: fsu .6s ease forwards;
+}
+.admin-login-card h1 {
+  font-family: var(--font-d); font-size: 18px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; color: var(--t1);
+}
+.admin-subtitle {
+  font-family: var(--font-m); font-size: 10px; letter-spacing: 2px;
+  color: var(--t3); margin-bottom: 32px; text-transform: uppercase;
+}
+#error {
+  margin-top: 14px; font-family: var(--font-m); font-size: 11px;
+  text-align: center; color: #ff6b6b; letter-spacing: 1px;
+}
+
+/* ---- STATUS MESSAGES ---- */
+.status-ok  { font-family: var(--font-m); font-size: 11px; color: var(--cyan);  letter-spacing: 1px; margin-top: 12px; display: block; }
+.status-err { font-family: var(--font-m); font-size: 11px; color: #ff6b6b;      letter-spacing: 1px; margin-top: 12px; display: block; }
+
+/* ---- ANIMATION ---- */
+@keyframes fsu { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }

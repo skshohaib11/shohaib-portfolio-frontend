@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Dashboard | Shohaib Admin</title>
+<link rel="stylesheet" href="admin.css"/>
+</head>
+<body>
+<header class="admin-header">
+  <div class="container">
+    <h1>CMS Dashboard</h1>
+    <a href="login.html" onclick="localStorage.removeItem('token')">Logout</a>
+  </div>
+</header>
+<div class="admin-container">
+  <div class="admin-card" style="margin-bottom:28px">
+    <h2>Welcome Back</h2>
+    <p style="color:var(--t2);font-size:13px;line-height:1.85">
+      Every change you make here saves instantly to <code style="color:var(--cyan);font-family:var(--font-m);font-size:11px">content.json</code>
+      and is immediately visible on the live portfolio. Use the panels below to manage your content.
+    </p>
+  </div>
+  <div class="admin-card dashboard-links">
+    <a href="hero.html">      <span class="icon">◈</span>Hero Section</a>
+    <a href="skills.html">    <span class="icon">⬡</span>Skills</a>
+    <a href="projects.html">  <span class="icon">◉</span>Projects</a>
+    <a href="experience.html"><span class="icon">◎</span>Experience</a>
+    <a href="education.html"> <span class="icon">◇</span>Education</a>
+  </div>
+</div>
+<script>if (!localStorage.getItem("token")) window.location.href = "login.html";</script>
+</body>
+</html>

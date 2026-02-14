@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Projects | Admin</title>
+<link rel="stylesheet" href="admin.css"/>
+</head>
+<body>
+<header class="admin-header">
+  <div class="container">
+    <h1>Projects Management</h1>
+    <a href="dashboard.html">← Back</a>
+  </div>
+</header>
+<div class="admin-container">
+  <div class="admin-card">
+    <h2>Add New Project</h2>
+    <label>Project Title</label>
+    <input id="project-title" placeholder="e.g. Financial Market Dashboard"/>
+    <label>Tools / Skills Used (comma separated)</label>
+    <input id="project-tools" placeholder="Python, SQL, Power BI, Pandas, Seaborn"/>
+    <label>Description</label>
+    <textarea id="project-description" placeholder="What does this project do? What problem does it solve? What was the outcome?"></textarea>
+    <label>Project Image (.png .jpg .jpeg — max 5MB)</label>
+    <input type="file" id="project-image" accept=".png,.jpg,.jpeg"/>
+    <label>GitHub / Live Link (optional)</label>
+    <input id="project-link" placeholder="https://github.com/skshohaib11/..."/>
+    <button onclick="addProject()"><span>Add Project</span></button>
+    <span id="project-status"></span>
+  </div>
+  <div class="admin-card">
+    <h2>Existing Projects</h2>
+    <div id="projects-list"></div>
+  </div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

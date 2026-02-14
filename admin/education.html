@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Education | Admin</title>
+<link rel="stylesheet" href="admin.css"/>
+</head>
+<body>
+<header class="admin-header">
+  <div class="container">
+    <h1>Education Management</h1>
+    <a href="dashboard.html">← Back</a>
+  </div>
+</header>
+<div class="admin-container">
+  <div class="admin-card">
+    <h2>Add Education</h2>
+    <label>Institute / University</label>
+    <input id="edu-institute" placeholder="e.g. Trinity College Dublin, Simplilearn"/>
+    <label>Degree / Course</label>
+    <input id="edu-degree" placeholder="e.g. MSc Data Analytics, Data Science Certification"/>
+    <label>Year of Completion</label>
+    <input id="edu-year" placeholder="e.g. 2024"/>
+    <label>Institute Logo / Image (.png .jpg .jpeg — max 5MB)</label>
+    <input type="file" id="edu-image" accept=".png,.jpg,.jpeg"/>
+    <label>Description / Highlights</label>
+    <textarea id="edu-description"
+      placeholder="Key subjects covered, achievements, GPA, major projects, certifications..."></textarea>
+    <button onclick="addEducation()"><span>Add Education</span></button>
+    <span id="edu-status"></span>
+  </div>
+  <div class="admin-card">
+    <h2>Existing Education</h2>
+    <div id="education-list"></div>
+  </div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

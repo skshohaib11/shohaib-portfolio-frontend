@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Hero Section | Admin</title>
+<link rel="stylesheet" href="admin.css"/>
+</head>
+<body>
+<header class="admin-header">
+  <div class="container">
+    <h1>Hero Section</h1>
+    <a href="dashboard.html">← Back</a>
+  </div>
+</header>
+<div class="admin-container">
+  <div class="admin-card">
+    <h2>Edit Hero Content</h2>
+    <label>Your Name / Greeting Line</label>
+    <input type="text" id="hero-name" placeholder="Hey, I'm Shohaib Shaikh!"/>
+    <label>Professional Title</label>
+    <input type="text" id="hero-title" placeholder="Data Analyst | Financial & Market Analytics | Dashboard Builder"/>
+    <label>Bio / Tagline</label>
+    <textarea id="hero-tagline" style="min-height:120px" placeholder="Short professional summary shown below your title..."></textarea>
+    <button onclick="updateHero()"><span>Save Hero Section</span></button>
+    <span id="hero-status"></span>
+  </div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

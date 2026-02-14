@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Skills | Admin</title>
+<link rel="stylesheet" href="admin.css"/>
+</head>
+<body>
+<header class="admin-header">
+  <div class="container">
+    <h1>Skills Management</h1>
+    <a href="dashboard.html">← Back</a>
+  </div>
+</header>
+<div class="admin-container">
+  <div class="admin-card">
+    <h2>Add New Skill</h2>
+    <label>Category</label>
+    <select id="skill-category">
+      <option value="programming">Programming Languages</option>
+      <option value="analytics-tools">Data Analytics Tools</option>
+      <option value="viz-tools">Data Visualization Tools</option>
+      <option value="methods">Data Analytics Methods</option>
+      <option value="other">Other Skills</option>
+    </select>
+    <label>Skill Name</label>
+    <input id="skill-name" placeholder="e.g. Python, Tableau, ANOVA, Machine Learning"/>
+    <button onclick="addSkill()"><span>Add Skill</span></button>
+    <span id="skill-status"></span>
+  </div>
+  <div class="admin-card">
+    <h2>Existing Skills</h2>
+    <p style="color:var(--t3);font-family:var(--font-m);font-size:10px;letter-spacing:1px;margin-bottom:20px">Click ✕ on any skill to remove it</p>
+    <div id="skills-list"></div>
+  </div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>
