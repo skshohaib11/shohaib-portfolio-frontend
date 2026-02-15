@@ -1,4 +1,4 @@
-html<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -28,7 +28,7 @@ async function login() {
   error.textContent = "";
   if (!email || !password) { error.textContent = "Please enter email and password"; return; }
   try {
-    const res  = await fetch(API + "/login", {
+    const res = await fetch(API + "/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })
@@ -37,8 +37,8 @@ async function login() {
     if (!res.ok) { error.textContent = data.message || "Login failed"; return; }
     localStorage.setItem("token", data.token);
     window.location.href = "dashboard.html";
-  } catch {
-    error.textContent = "Cannot connect to server";
+  } catch(e) {
+    error.textContent = "Cannot connect: " + e.message;
   }
 }
 document.addEventListener("keydown", e => { if (e.key === "Enter") login(); });
