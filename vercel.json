@@ -1,1 +1,1 @@
-{"cleanUrls":true,"trailingSlash":false}
+{"rewrites":[{"source":"/admin/auth","destination":"/admin/auth.html"}]}
