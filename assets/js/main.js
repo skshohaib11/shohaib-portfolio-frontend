@@ -2,7 +2,7 @@
    CONFIG
    ↓ Change to Railway URL when deploying
 ============================================================ */
-const API_BASE = "http://localhost:3000";
+const API_BASE = "https://shohaib-portfolio-backend-production.up.railway.app";
 const API_URL  = `${API_BASE}/api/cms/content`;
 
 /* ============================================================
