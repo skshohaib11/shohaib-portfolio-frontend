@@ -1,7 +1,7 @@
 /* ============================================================
    CONFIG — must match backend port
 ============================================================ */
-const API_BASE = "http://localhost:3000/api/cms";
+const API_BASE = "https://shohaib-portfolio-backend-production.up.railway.app/api/cms";
 const token    = localStorage.getItem("token");
 
 /* Redirect if not logged in */
